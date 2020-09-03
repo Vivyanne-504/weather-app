@@ -1,0 +1,10 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background: cornflowerblue;
+}
+input{
+    align-self: center;
+}
