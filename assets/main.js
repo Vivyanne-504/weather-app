@@ -21,8 +21,8 @@ navigator.geolocation.getCurrentPosition(position =>{
   .then(response => {
     return response.json();
     })
-    then(data =>{
-      console.log(data);
+    .then (data =>{
+      console.log (data);
       const {temperature, summary} = data.currently;
 
       temperatureDegree.textContent = temperature;
