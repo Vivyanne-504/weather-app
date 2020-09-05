@@ -1,18 +1,31 @@
 window.addEventListener('load', ()=> {
  let long;
  let lat;
-  if(navigator.geolocation) {
+ let temperatureDescription = document.querySelector('.temperature-description');
+ let temperatureDegree = document.querySelector('.temperature-degree');
+ let locationTimezone = document.querySelector('.location-timezone');
+
+
+
+ if(navigator.geolocation) {
 navigator.geolocation.getCurrentPosition(position =>{
   long= position.coords.longitude;
   lat= position.coords.latitude;
 
-  const api = `https://api.darksky.net/forecast/fd9d9c6418c23d94745bB36767721ad1/${lat},${long}`;
+
+  const proxy = 'https://cors-anywhere.herokuapp.com/'
+  const api = `${proxy}
+  https://api.darksky.net/forecast/fd9d9c6418c23d94745bB36767721ad1/${lat}, ${long}`;
+  
   fetch(api)
-  .then(response =>{
+  .then(response => {
     return response.json();
     })
-    .then(data =>{
+    then(data =>{
       console.log(data);
+      const {temperature, summary} = data.currently;
+
+      temperatureDegree.textContent = temperature;
     });
   });
   
