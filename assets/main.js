@@ -26,6 +26,7 @@ navigator.geolocation.getCurrentPosition(position =>{
       const {temperature, summary} = data.currently;
 
       temperatureDegree.textContent = temperature;
+      temperatureDescription.textContent = summary;
     });
   });
   
